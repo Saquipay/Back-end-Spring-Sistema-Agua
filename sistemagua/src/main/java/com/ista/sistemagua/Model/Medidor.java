@@ -7,20 +7,18 @@ import javax.persistence.*;
 public class Medidor {
     private long id;
     private String marca;
-    private String fecha_compra;
-    private String estado;
+    private String fecha_instalacion;
 
     public Medidor() {
 
     }
 
-    public Medidor(long id, String marca, String fecha_compra, String estado) {
-        this.id = id;
-        this.marca = marca;
-        this.fecha_compra = fecha_compra;
-        this.estado = estado;
-    }
-
+    public Medidor(long id, String marca, String fecha_instalacion) {
+		this.id = id;
+		this.marca = marca;
+		this.fecha_instalacion = fecha_instalacion;
+	}
+    
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     public long getId() {
@@ -39,22 +37,20 @@ public class Medidor {
     public void setMarca(String marca) {
         this.marca = marca;
     }
+    @Column(name = "fecha_instalacion", nullable = false)
+	public String getFecha_instalacion() {
+		return fecha_instalacion;
+	}
 
-    @Column(name = "fecha_compra", nullable = false)
-    public String getFecha_compra() {
-        return fecha_compra;
-    }
+	public void setFecha_instalacion(String fecha_instalacion) {
+		this.fecha_instalacion = fecha_instalacion;
+	}
 
-    public void setFecha_compra(String fecha_compra) {
-        this.fecha_compra = fecha_compra;
-    }
+    
 
-    @Column(name = "estado", nullable = false)
-    public String getEstado() {
-        return estado;
-    }
 
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
+
+
+
+
 }

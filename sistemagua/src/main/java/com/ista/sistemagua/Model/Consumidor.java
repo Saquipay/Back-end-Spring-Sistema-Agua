@@ -1,5 +1,7 @@
 package com.ista.sistemagua.Model;
 
+import java.util.Set;
+
 import javax.persistence.*;
 
 @Entity
@@ -14,6 +16,7 @@ public class Consumidor {
     private String telefono_celular;
     private String comunidad;
     private Medidor medidor;
+    private Set<Consumo> consumos;
 
     public Consumidor() {
 
@@ -112,6 +115,15 @@ public class Consumidor {
 
     public void setMedidor(Medidor medidor) {
         this.medidor = medidor;
+    }
+
+    @OneToMany(mappedBy = "consumidor")
+    public Set<Consumo> getConsumos() {
+        return consumos;
+    }
+
+    public void setConsumos(Set<Consumo> consumos) {
+        this.consumos = consumos;
     }
 
 }

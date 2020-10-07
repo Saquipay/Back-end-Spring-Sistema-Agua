@@ -8,17 +8,18 @@ public class Medidor {
     private long id;
     private String marca;
     private String fecha_instalacion;
+    private Consumidor consumidor;
 
     public Medidor() {
 
     }
 
     public Medidor(long id, String marca, String fecha_instalacion) {
-		this.id = id;
-		this.marca = marca;
-		this.fecha_instalacion = fecha_instalacion;
-	}
-    
+        this.id = id;
+        this.marca = marca;
+        this.fecha_instalacion = fecha_instalacion;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     public long getId() {
@@ -37,20 +38,23 @@ public class Medidor {
     public void setMarca(String marca) {
         this.marca = marca;
     }
+
     @Column(name = "fecha_instalacion", nullable = false)
-	public String getFecha_instalacion() {
-		return fecha_instalacion;
-	}
+    public String getFecha_instalacion() {
+        return fecha_instalacion;
+    }
 
-	public void setFecha_instalacion(String fecha_instalacion) {
-		this.fecha_instalacion = fecha_instalacion;
-	}
+    public void setFecha_instalacion(String fecha_instalacion) {
+        this.fecha_instalacion = fecha_instalacion;
+    }
 
-    
+    @OneToOne(mappedBy = "medidor")
+    public Consumidor getConsumidor() {
+        return consumidor;
+    }
 
-
-
-
-
+    public void setConsumidor(Consumidor consumidor) {
+        this.consumidor = consumidor;
+    }
 
 }

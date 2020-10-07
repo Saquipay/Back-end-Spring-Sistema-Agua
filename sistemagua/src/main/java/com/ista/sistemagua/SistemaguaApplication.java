@@ -9,5 +9,4 @@ public class SistemaguaApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SistemaguaApplication.class, args);
 	}
-
 }

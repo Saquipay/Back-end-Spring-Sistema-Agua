@@ -10,14 +10,15 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping("/api/sgap") 
+@RequestMapping("/api/sgap")
 
 public class MedidorController {
-   @Autowired
-   private MedidorRepository medidorRepository;
-   @GetMapping("/medidor")
-   public List <Medidor> getAllConsumidores(){
-       return medidorRepository.findAll();
-   }
+    @Autowired
+    private MedidorRepository medidorRepository;
 
-   }
+    @GetMapping("/medidor")
+    public List<Medidor> getAllConsumidores() {
+        return medidorRepository.findAll();
+    }
+
+}

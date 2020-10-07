@@ -10,23 +10,22 @@ public class Consumidor {
     private String apellido;
     private String direccion;
     private String correo;
-    private long id_medidor;
     private String telefono_fijo;
     private String telefono_celular;
     private String comunidad;
+    private Medidor medidor;
 
     public Consumidor() {
 
     }
 
-    public Consumidor(String cedula, String nombre, String apellido, String direccion, String correo, long id_medidor,
+    public Consumidor(String cedula, String nombre, String apellido, String direccion, String correo,
             String telefono_fijo, String telefono_celular, String comunidad) {
         this.cedula = cedula;
         this.nombre = nombre;
         this.apellido = apellido;
         this.direccion = direccion;
         this.correo = correo;
-        this.id_medidor = id_medidor;
         this.telefono_fijo = telefono_fijo;
         this.telefono_celular = telefono_celular;
         this.comunidad = comunidad;
@@ -78,15 +77,6 @@ public class Consumidor {
         this.correo = correo;
     }
 
-    @Column(name = "id_medidor", nullable = false)
-    public long getId_medidor() {
-        return id_medidor;
-    }
-
-    public void setId_medidor(long id_medidor) {
-        this.id_medidor = id_medidor;
-    }
-
     @Column(name = "telefono_fijo", nullable = false)
     public String getTelefono_fijo() {
         return telefono_fijo;
@@ -114,8 +104,14 @@ public class Consumidor {
         this.telefono_celular = telefono_celular;
     }
 
-    
-    
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_medidor", referencedColumnName = "id")
+    public Medidor getMedidor() {
+        return medidor;
+    }
 
-    
+    public void setMedidor(Medidor medidor) {
+        this.medidor = medidor;
+    }
+
 }

@@ -5,7 +5,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "medidor")
 public class Medidor {
-    private long id;
+    private String id;
     private String marca;
     private String fecha_instalacion;
 
@@ -13,19 +13,18 @@ public class Medidor {
 
     }
 
-    public Medidor(long id, String marca, String fecha_instalacion) {
+    public Medidor(String id, String marca, String fecha_instalacion) {
         this.id = id;
         this.marca = marca;
         this.fecha_instalacion = fecha_instalacion;
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    public long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

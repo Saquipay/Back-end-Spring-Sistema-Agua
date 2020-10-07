@@ -18,4 +18,5 @@ public class ConsumidorController {
     public List <Consumidor> getAllConsumidores(){
         return consumidorRepository.findAll();
     }
+    
 }

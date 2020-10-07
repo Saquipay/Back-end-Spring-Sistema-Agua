@@ -4,6 +4,7 @@ import java.util.Set;
 
 import javax.persistence.*;
 
+
 @Entity
 @Table(name = "consumidor")
 public class Consumidor {
@@ -16,7 +17,7 @@ public class Consumidor {
     private String telefono_celular;
     private String comunidad;
     private Medidor medidor;
-    private Set<Consumo> consumos;
+    private Set<Consumo> consumo;
 
     public Consumidor() {
 
@@ -44,7 +45,7 @@ public class Consumidor {
         this.cedula = cedula;
     }
 
-    @Column(name = "nombre", nullable = false)
+    @Column(name = "nombre")
     public String getNombre() {
         return nombre;
     }
@@ -117,13 +118,25 @@ public class Consumidor {
         this.medidor = medidor;
     }
 
-    @OneToMany(mappedBy = "consumidor")
-    public Set<Consumo> getConsumos() {
-        return consumos;
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    public Set<Consumo> getConsumo() {
+		return consumo;
+	}
+
+	public void setConsumo(Set<Consumo> consumo) {
+		this.consumo = consumo;
+	}
+
+    @Override
+    public String toString() {
+        return "Consumidor [apellido=" + apellido + ", cedula=" + cedula + ", comunidad=" + comunidad + ", consumo="
+                + consumo.getClass() + ", correo=" + correo + ", direccion=" + direccion + ", medidor=" + medidor.getClass() + ", nombre="
+                + nombre + ", telefono_celular=" + telefono_celular + ", telefono_fijo=" + telefono_fijo + "]";
     }
 
-    public void setConsumos(Set<Consumo> consumos) {
-        this.consumos = consumos;
-    }
+    
+
+
+
 
 }

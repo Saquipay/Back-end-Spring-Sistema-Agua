@@ -8,7 +8,6 @@ public class Medidor {
     private long id;
     private String marca;
     private String fecha_instalacion;
-    private Consumidor consumidor;
 
     public Medidor() {
 
@@ -46,15 +45,6 @@ public class Medidor {
 
     public void setFecha_instalacion(String fecha_instalacion) {
         this.fecha_instalacion = fecha_instalacion;
-    }
-
-    @OneToOne(mappedBy = "medidor")
-    public Consumidor getConsumidor() {
-        return consumidor;
-    }
-
-    public void setConsumidor(Consumidor consumidor) {
-        this.consumidor = consumidor;
     }
 
 }
